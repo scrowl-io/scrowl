@@ -1,3 +1,8 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { AccordionItemProps } from '@owlui/lib';
+import { Outline } from '../../components/accordion';
+
 import { CardProps } from '../../components/cardgrid/index.types';
 import { PageRoutes } from '../editor/routes';
 
@@ -13,6 +18,68 @@ export const sidebarItems = [
       { label: 'FAQ' },
       { label: 'Contact Support' },
     ],
+  },
+];
+
+const subOutlineItems: AccordionItemProps[] = [
+  {
+    id: '1',
+    label: 'Building a respectful workplace',
+    view: (
+      <ul>
+        <li>
+          <a href="https://osg.ca" target="_blank">
+            Slide 1
+          </a>
+        </li>
+        <li>
+          <Link to="https://osg.ca" target="_blank">
+            Slide 2
+          </Link>
+        </li>
+        <li>
+          <Link to="https://osg.ca" target="_blank">
+            Slide 3
+          </Link>
+        </li>
+      </ul>
+    ),
+  },
+  {
+    id: '2',
+    label: 'What is harrassment?',
+    view: (
+      <ul>
+        <li>
+          <Link to="https://osg.ca" target="_blank">
+            Slide 1
+          </Link>
+        </li>
+        <li>
+          <Link to="https://osg.ca" target="_blank">
+            Slide 2
+          </Link>
+        </li>
+        <li>
+          <Link to="https://osg.ca" target="_blank">
+            Slide 3
+          </Link>
+        </li>
+      </ul>
+    ),
+  },
+];
+
+export const topOutlineItems: AccordionItemProps[] = [
+  {
+    id: '1',
+    label: 'Introduction to Harrassment',
+    view: <Outline alwaysOpen flush items={subOutlineItems} />,
+  },
+  {
+    id: '2',
+    label: 'Additional Training for Supervisors',
+    view: <Outline alwaysOpen flush items={subOutlineItems} />,
   },
 ];
 

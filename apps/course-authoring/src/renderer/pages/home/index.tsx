@@ -3,8 +3,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import style from './styles.module.scss';
 import { Button, Card, Icon, NavigationDrawer as Nav, Table } from '@owlui/lib';
+import { Outline } from '../../components/accordion';
 import { CardGrid } from '../../components/cardgrid';
-import { sidebarItems, cards, filesList } from './data';
+import { sidebarItems, cards, filesList, topOutlineItems } from './data';
 import { Project } from '../../models';
 
 export const PageRoute = '/';
@@ -81,7 +82,10 @@ export const PageElement = () => {
 
   return (
     <>
-      <Nav className={style.nav} header={Header} items={sidebarItems} />
+      <div className="left-panel" style={{ overflowY: 'scroll' }}>
+        <Outline items={topOutlineItems} />
+        <Nav className={style.nav} header={Header} items={sidebarItems} />
+      </div>
       <main className={style.main}>
         <section>
           <div>{isProcessing ? <div>WORKING ON IT</div> : ''}</div>
